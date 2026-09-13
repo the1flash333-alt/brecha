@@ -27,9 +27,9 @@ jobs:
           arch: x86
           profile: pixel
           disable-animations: true
-          emulator-options: -no-window -no-snapshot -noaudio -no-boot-anim -gpu swiftshader_indirect -camera-back none
+          emulator-options: -no-window -no-snapshot -noaudio -no-boot-anim -no-metrics -gpu swiftshader_indirect -camera-back none
           script: |
-            set -euxo pipefail
+            set -eux
             mkdir -p qa
             adb devices -l | tee qa/adb-devices.txt
             adb shell getprop ro.build.version.release | tee qa/android-version.txt
